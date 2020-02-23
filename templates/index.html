@@ -1,0 +1,32 @@
+{% extends "defaulttemplate.html" %}
+{# I using a external template #}
+{% block body %}
+<div class="container mt-5 pt-2">
+	<div class="text-center">
+		<h2>Welcome</h2>
+		<p>Pensar em um texto</p>
+		{% if status %} <h3>{{status}}</h3> {% endif %}
+	</div>
+	<form action="/user/new" method="post">
+		<div class="row">
+			<div class="col-md-4">
+				<label for="userName">Name</label>
+				<input class="form-control" id="userName" name="username" required="true">
+			</div>
+			<div class="col-md-4">
+				<label for="userEmail">E-Mail</label>
+				<input type="email" class="form-control" id="userEmail" name="useremail" required="">
+			</div>
+			<div class="col-md-4">
+				<label for="userPassword">Password</label>
+				<input type="password" class="form-control" id="userPassword" name="userpassword" required="">
+			</div>
+		</div>
+		<div class="row justify-content-md-center mt-2">
+			<div class="col-md-1">
+				<input type="submit" class="btn btn-primary" value="Create user">
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

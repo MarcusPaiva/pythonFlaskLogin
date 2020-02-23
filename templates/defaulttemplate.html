@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body class="bg-light">
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="collapse navbar-collapse justify-content-end">
+				{# If user is not login #}
+				{% if not user %}
+				<form method="post" action="/user/login">
+					<div class="row">
+						<div class="col">
+							<input type="email" class="form-control form-control-sm" id="userEmail" name="useremail" placeholder="E-Mail">
+						</div>
+						<div class="col">
+							<input type="password" class="form-control form-control-sm" id="userPassword" name="userpassword" placeholder="password">
+						</div>
+						<div class="col">
+							<input type="submit" class="btn btn-primary" value="Login">
+						</div>
+					</div>
+				</form>
+				{# If user exists while login #}
+				{% else %}
+				<div class="row">
+					<div class="col text-light">
+						Hi, {{user[1]}}
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</nav>
+		{% block body %}{% endblock %}
+	</body>
+</html>
